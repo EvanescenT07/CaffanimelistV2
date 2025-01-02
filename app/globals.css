@@ -2,20 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* {
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  overflow: -moz-scrollbars-none; /* Older Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Edge */
   }
 }
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Edge */
+}
 
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-light-primary text-light-text;
+}
+.dark-mode html,
+.dark-mode body {
+  @apply bg-dark-primary text-dark-text;
+}
+img {
+  border-radius: 0.5rem;
+  transition: 0.3s ease all;
+  -webkit-animation: 0.3s ease all;
+  -moz-transition: 0.3 ease all;
+  -ms-transition: 0.3 ease all;
+  -o-transition: 0.3 ease all;
+  transition: 0.3 ease all;
+  animation: 0.3 ease all;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+img.animate-none {
+  transition: none;
+  animation: none;
+}
+
+img.animate-none:hover {
+  transform: none;
+}
+.word-wrap {
+  word-wrap: break-word; /* For older browsers */
+  overflow-wrap: break-word; /* For modern browsers */
+  word-break: break-all; /* Breaks long words at any character */
+}
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
 }
